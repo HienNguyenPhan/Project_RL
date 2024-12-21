@@ -6,3 +6,14 @@ Thành viên nhóm: Nguyễn Phan Hiển
 
 ## Phương pháp sử dụng
 Deep Q Learning
+
+## Cách chạy code
+Cách chạy hàm train
+```
+python train_dql.py
+```
+Cách chạy hàm eval
+```
+python eval.py
+```
+
