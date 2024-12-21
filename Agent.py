@@ -1,17 +1,20 @@
 import torch.nn as nn
+import torch
 
 class Agent(nn.Module):
     def __init__(self, observation_shape, action_shape):
         super().__init__()
         self.cnn = nn.Sequential(
-            nn.Conv2d(observation_shape[-1], 16, 3, padding=1),
+            nn.Conv2d(observation_shape[-1], observation_shape[-1], 3),
             nn.ReLU(),
-            nn.Conv2d(16, 16, 3, padding=1),
+            nn.Conv2d(observation_shape[-1], observation_shape[-1], 3),
             nn.ReLU(),
         )
-        self.flatten = nn.Flatten()
-        self.fc = nn.Sequential(
-            nn.Linear(16 * observation_shape[0] * observation_shape[1], 120),
+        dummy_input = torch.randn(observation_shape).permute(2, 0, 1)
+        dummy_output = self.cnn(dummy_input)
+        flatten_dim = dummy_output.view(-1).shape[0]
+        self.network = nn.Sequential(
+            nn.Linear(flatten_dim, 120),
             nn.ReLU(),
             nn.Linear(120, 84),
             nn.ReLU(),
@@ -19,9 +22,11 @@ class Agent(nn.Module):
         )
 
     def forward(self, x):
-        if len(x.shape) == 3:
-            x = x.unsqueeze(0)
-        x = x.permute(0, 3, 1, 2)  # Convert to NCHW
+        assert len(x.shape) >= 3, "only support magent input observation"
         x = self.cnn(x)
-        x = self.flatten(x)
-        return self.fc(x)
+        if len(x.shape) == 3:
+            batchsize = 1
+        else:
+            batchsize = x.shape[0]
+        x = x.reshape(batchsize, -1)
+        return self.network(x)
