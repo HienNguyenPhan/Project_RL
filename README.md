@@ -20,14 +20,15 @@ python eval.py
 ## Kết quả
 Video khi test với agent random
 
-https://github.com/user-attachments/assets/6218dc40-839e-464e-8f11-0061b23098f1
+![random](https://github.com/user-attachments/assets/480ae032-0b36-4a6b-ac98-a24efb6472f6)
 
 Video khi test với agent pre-train
 
-https://github.com/user-attachments/assets/1c1fbada-55a7-492a-a5d0-cd06064b871c
+![pretrained](https://github.com/user-attachments/assets/4c0e13e2-50ea-4c58-98aa-cccf96e20e6e)
 
 Video khi test với agent pre-train final
 
-https://github.com/user-attachments/assets/76d70515-6ed6-4013-a821-6118687f1869
+![final_pretrained](https://github.com/user-attachments/assets/b97db9fc-5bb5-4b86-b874-35a9e92c55c0)
 
+Video được tạo bởi main.py
 Kết quả chiến thắng trong cả 3 ván. Tuy nhiên có trường hợp hòa do không đủ thời gian để tấn công hoặc còn sót lại một vài agent địch cuối cùng ở góc battlefield.
