@@ -32,3 +32,11 @@ Video khi test với agent pre-train final
 
 Video được tạo bởi main.py
 Kết quả chiến thắng trong cả 3 ván. Tuy nhiên có trường hợp hòa do không đủ thời gian để tấn công hoặc còn sót lại một vài agent địch cuối cùng ở góc battlefield.
+
+### Kết quả Eval
+
+| Agent           | Winrate       | Reward_red | Reward_blue |
+| ----------------|:-------------:|:----------:|------------:|
+| Random          | 1             |   -3.32    |    2.14     |
+| Pre_train       | 1             |    0.83    |    3.9      |
+| Pre_train_final | 1             |    1.34    |    1.38     |
