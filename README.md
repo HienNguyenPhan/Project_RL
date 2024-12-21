@@ -9,11 +9,11 @@ Deep Q Learning
 
 ## Cách chạy code
 Cách chạy hàm train
-```
-Jupyter Notebook Project_RL.ipynb
+```Python
+python train_dql.py
 ```
 Cách chạy hàm eval
-```
+```Python
 python eval.py
 ```
 
